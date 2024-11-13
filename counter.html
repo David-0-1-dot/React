@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- React -->
+        <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+        <!-- React DOM -->
+        <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+        <!-- Babel -->
+        <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    </head>
+    <title> React application </title>
+    <body>
+        <div id="one"></div>
+        <script type="text/babel">
+            class Counter extends React.Component{
+                constructor(props){
+                    super(props);
+                    this.state = {
+                        count: 0
+                    };
+                }
+                render(){
+                    return (
+                        <div>
+                            <h1>{this.state.count}</h1>
+                            <button onClick={this.increment}>Increment</button>
+                            <button onClick={this.decrement}>Decrement</button>
+                        </div>
+                    );
+                }
+                increment = () =>{
+                    this.setState( oldState => ({
+                        count: oldState.count + 1
+                        
+                    }));
+                }
+                decrement = () =>{
+                    this.setState(state => ({
+                        count: state.count - 1
+                    }));
+                }
+            }
+
+
+            class App extends React.Component{
+                render (){
+                    return (
+                        <div>
+                            <Counter />
+                            <Counter />
+                            <Counter />
+                        </div>
+                    );
+                }
+            }
+            ReactDOM.render(<App />, document.querySelector("#one"));
+        </script>
+    </body>
+</html>

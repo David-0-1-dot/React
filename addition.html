@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- React -->
+        <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+        <!-- React DOM -->
+        <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+        <!-- Babel -->
+        <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    </head>
+    <title> Addition </title>
+    <body>
+        <div id="one"></div>
+        <script type="text/babel">
+            class Hello extends React.Component {
+                render (){
+                    return (
+                        <div>
+                            <h1> Hello {this.props.name} </h1>
+                            <button onClick={this.handleClick}>Click Here!</button>
+                        </div>
+                        
+                    );
+                }
+                handleClick = () => {
+                    alert("He Dave!" + this.props.name);
+                }
+            }
+
+            class App extends React.Component{
+                constructor(props){
+                    super(props);
+                    this.state = {
+                        number1: 1,
+                        number2: 1,
+                        Score: 0,
+                        Response: "",
+                    }
+                }
+                
+                
+                render (){
+                    return (
+                        <div>
+                            <h1>{this.state.number1} + {this.state.number2}</h1> 
+                            <input onChange={this.updateResponse} value={this.state.Response} />
+                        </div>
+                    );
+                }
+                updateResponse = (event) =>{
+                    this.setState({
+                        response: event.target.value
+                    });
+                }
+            }
+            ReactDOM.render(<App />, document.querySelector("#one"));
+        </script>
+    </body>
+</html>
