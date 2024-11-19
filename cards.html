@@ -41,7 +41,6 @@
                             <tr key={i}>
                                 <td>{card.front}</td>
                                 <td>{card.back}</td>
-                                <td><button data-index={i} onClick={this.deleteCard}>delete</button></td>
                                 <td><button data-index={i} onClick={ () => this.props.deleteCard(i)}>delete</button></td>
                             </tr>    
                         );
